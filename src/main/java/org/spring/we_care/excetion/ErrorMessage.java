@@ -1,0 +1,33 @@
+package org.spring.we_care.excetion;
+
+public class ErrorMessage {
+
+    private int errorCode;
+    private String message;
+
+
+    public ErrorMessage() {
+    }
+
+    public ErrorMessage(int errorCode, String message) {
+        this.errorCode = errorCode;
+        this.message = message;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+}
