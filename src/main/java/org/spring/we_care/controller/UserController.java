@@ -54,10 +54,15 @@ public class UserController {
     }
 
     @PostMapping(value="/register")
-    public UserDetails register(@RequestBody User user) throws InternalErrorException {
+    public ResponseEntity<JwtResponse> register(@RequestBody User user) throws InternalErrorException {
         User u = (User) userService.saveUser(user);
         if (u.getId() != 0) {
-            return u;
+            authenticate(u.getUsername(), u.getPassword());
+            final UserDetails userDetails = userService
+				.loadUserByUsername(u.getUsername());
+
+            final String token = jwtTokenUtil.generateToken(userDetails);
+            return new ResponseEntity<>(new JwtResponse(token), HttpStatus.CREATED);
         }
         throw new InternalErrorException("An error occurred while processing the data !!! Try later");
     }
