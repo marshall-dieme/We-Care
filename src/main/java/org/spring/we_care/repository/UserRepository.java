@@ -15,4 +15,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     public User findByCode(String code);
 
     public List<User> findBySpeciality(Speciality speciality);
+
+    public List<User> findByProfileProfileName(String name);
 }

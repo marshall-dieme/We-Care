@@ -14,6 +14,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
 
     public Appointment findByCode(String code);
 
-    @Query("SELECT a FROM Appointment a WHERE a.user=:user OR a.coach=:user")
-    public List<Appointment> findByUserOrCoach(@Param("user") User user);
+    @Query("SELECT a FROM Appointment a WHERE a.user=:user")
+    public List<Appointment> findByUser(@Param("user") User user);
+
+    public List<Appointment> findByCoach(@Param("user") User user);
 }

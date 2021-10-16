@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+
 @RestController
 public class UserController {
     
@@ -85,6 +86,9 @@ public class UserController {
     public ResponseEntity<List<User>> getCoaches() {
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
+
+    
+    
     
     
     

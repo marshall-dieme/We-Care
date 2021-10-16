@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -299,6 +301,7 @@ public class User implements UserDetails {
     /**
      * @return List<Apppointment> return the appointments
      */
+    @JsonManagedReference
     public List<Appointment> getAppointments() {
         return appointments;
     }
@@ -313,6 +316,7 @@ public class User implements UserDetails {
     /**
      * @return List<Apppointment> return the schedules
      */
+    @JsonManagedReference
     public List<Appointment> getSchedules() {
         return schedules;
     }

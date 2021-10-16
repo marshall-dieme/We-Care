@@ -22,7 +22,10 @@ public class AppointmentService {
     }
 
     public List<Appointment> getAppointments(User user) throws EntityNotFoundException {
-        return appointmentRepository.findByUserOrCoach(user);
+        return appointmentRepository.findByUser(user);
+    }
+    public List<Appointment> getSchedules(User user) throws EntityNotFoundException {
+        return appointmentRepository.findByCoach(user);
     }
 
     public Appointment saveAppointment(Appointment a) throws InternalErrorException {

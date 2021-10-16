@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Appointment {
@@ -62,6 +64,7 @@ public class Appointment {
     /**
      * @return User return the user
      */
+    @JsonBackReference
     public User getUser() {
         return user;
     }
@@ -76,6 +79,7 @@ public class Appointment {
     /**
      * @return User return the coach
      */
+    @JsonBackReference
     public User getCoach() {
         return coach;
     }

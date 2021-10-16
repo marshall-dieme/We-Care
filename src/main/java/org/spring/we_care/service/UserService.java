@@ -64,6 +64,10 @@ public class UserService implements UserDetailsService {
     }
 
     public List<org.spring.we_care.model.User> getUsers() {
-        return userRepository.findAll();
+        return userRepository.findByProfileProfileName("Coach");
+    }
+
+    public org.spring.we_care.model.User getByUsername(String username) throws EntityNotFoundException {
+        return userRepository.findByUsername(username);
     }
 }
